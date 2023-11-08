@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+</head>
+<body>
+    <h1>Quora Posts</h1>
+    <% for(let i = 0; i < posts.length; i++) {%>
+    <div class="username">
+        <h2>@<%= posts[i].username %></h2>
+        <h3><%= posts[i].content %></h3>
+    </div>
+    <div style="display: inline;"> 
+        <a href="http://localhost:8080/posts/<%= posts[i].id %> "><button>show more</button></a>
+        <a href="http://localhost:8080/posts/<%= posts[i].id %>/edit">edit</a>
+        <form action="http://localhost:8080/posts/<%= posts[i].id %>?_method=DELETE " method="post">
+        <button>delete</button></form>
+    </div>
+   
+    <% } %>
+    <br><br>
+    <a href="http://localhost:8080/posts/new"><button>Post</button></a>
+</body>
+</html>
